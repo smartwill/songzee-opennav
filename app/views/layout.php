@@ -89,8 +89,8 @@
         </div>
     </div>
     <div class="container footer-bottom">
-        <span>© <?= date('Y') ?> 开源替代 · 致敬开源社区</span>
-        <span>本站数据为演示用途</span>
+        <span>© <?= date('Y') ?> 开源替代 · 致敬开源社区 | <a href="https://www.songzee.com.cn" target="_blank" rel="noopener noreferrer">服装PLM系统</a></span>
+        <span>本站数据为演示用途，感谢<a href="https://www.songzee.com.cn" target="_blank" rel="noopener noreferrer">Songzee</a>提供服务</span>
     </div>
 </footer>
 
