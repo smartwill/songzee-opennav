@@ -1,0 +1,23 @@
+# Apache URL 重写规则
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 直接放行存在的文件 / 目录（静态资源等）
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 其余请求交给前端控制器
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# 保护敏感目录
+<FilesMatch "\.(sql|md)$">
+    Require all denied
+</FilesMatch>
+
+# 默认字符集
+AddDefaultCharset UTF-8
+
+# 默认入口
+DirectoryIndex index.php
