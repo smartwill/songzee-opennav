@@ -1,0 +1,30 @@
+# Nginx 伪静态规则
+# 将此段配置放到站点 server { } 块中，或通过 include 引入
+# 注意：请将 root 指向本项目根目录，例如 root /var/www/opennav;
+
+location / {
+    # 默认入口
+    index index.php;
+
+    # 直接放行存在的文件（静态资源、图片等）
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+# 保护敏感文件（禁止访问 .sql / .md / 隐藏文件）
+location ~ \.(sql|md)$ {
+    deny all;
+}
+
+location ~ /\. {
+    deny all;
+}
+
+# PHP-FPM 解析（按实际 PHP-FPM 监听方式调整）
+location ~ \.php$ {
+    # fastcgi_pass   127.0.0.1:9000;      # TCP 方式
+    # fastcgi_pass   unix:/var/run/php/php8.1-fpm.sock;  # Unix socket 方式
+    fastcgi_pass   unix:/tmp/php-cgi.sock;
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    include        fastcgi_params;
+}
