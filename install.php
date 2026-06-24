@@ -85,7 +85,7 @@ if ($step === 4 && isset($config)) {
         $seed = file_get_contents(__DIR__ . '/database/seed.sql');
         $statements = array_filter(array_map('trim', explode(';', $seed)));
         foreach ($statements as $stmt) {
-            if ($stmt && stripos($stmt, 'SET ') !== 0) $pdo->exec($stmt);
+            if ($stmt && stripos($stmt, 'SET NAMES') !== 0) $pdo->exec($stmt);
         }
         
         // 生成配置文件
