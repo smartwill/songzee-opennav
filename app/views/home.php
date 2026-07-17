@@ -6,8 +6,8 @@
             <span class="pill"><?= number_format($stats['software']) ?>+ 商业软件 · <?= number_format($stats['tools']) ?>+ 开源项目</span>
         </div>
         <h1 class="hero-title">
-            用<span class="grad">开源</span>替代<br>
-            你常用的商业软件目录大全————<?= e(config('site.name')) ?>
+            用<span class="grad">开源</span>替代
+            付费商业软件<br>开源替代目录大全————<?= e(config('site.name')) ?>
         </h1>
         <p class="hero-sub">
             发现闭源软件背后更自由、更安全、更省钱的免费开源替代方案。
