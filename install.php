@@ -11,13 +11,14 @@ $errors = [];
 $config = $_SESSION['install_config'] ?? [];
 
 // 检查是否已安装
-if (file_exists(__DIR__ . '/config/config.php')) {
+if (file_exists(__DIR__ . '/config/config.php') && file_exists(__DIR__ . '/config/db.php')) {
     $currentConfig = require __DIR__ . '/config/config.php';
+    $currentDb = require __DIR__ . '/config/db.php';
     try {
         $pdo = new PDO(
-            "mysql:host={$currentConfig['db']['host']};dbname={$currentConfig['db']['name']};charset={$currentConfig['db']['charset']}",
-            $currentConfig['db']['user'],
-            $currentConfig['db']['pass'],
+            "mysql:host={$currentDb['db']['host']};dbname={$currentDb['db']['name']};charset={$currentDb['db']['charset']}",
+            $currentDb['db']['user'],
+            $currentDb['db']['pass'],
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         );
         $tables = $pdo->query("SHOW TABLES")->fetchAll(PDO::FETCH_COLUMN);
@@ -88,9 +89,10 @@ if ($step === 4 && isset($config)) {
             if ($stmt && stripos($stmt, 'SET NAMES') !== 0) $pdo->exec($stmt);
         }
         
-        // 生成配置文件
-        $configContent = <<<EOF
+        // 生成数据库配置文件（不入库）
+        $dbContent = <<<EOF
 <?php
+// 数据库配置（请勿提交到 Git）
 return [
     'db' => [
         'host'    => '{$config['db_host']}',
@@ -99,6 +101,14 @@ return [
         'pass'    => '{$config['db_pass']}',
         'charset' => 'utf8mb4',
     ],
+];
+EOF;
+        file_put_contents(__DIR__ . '/config/db.php', $dbContent);
+        
+        // 生成站点配置文件
+        $configContent = <<<EOF
+<?php
+return [
     'site' => [
         'name'    => '{$config['site_name']}',
         'tagline' => '{$config['site_tagline']}',

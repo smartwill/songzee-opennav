@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 define('BASE_PATH', dirname(__DIR__));
 
+// 加载配置：站点配置 + 数据库配置（数据库配置不入库）
 $config = require BASE_PATH . '/config/config.php';
+$dbConfig = require BASE_PATH . '/config/db.php';
+$config['db'] = $dbConfig['db'];
 
 /**
  * 获取全局配置

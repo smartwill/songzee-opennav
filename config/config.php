@@ -1,13 +1,7 @@
 <?php
 // 数据库与应用配置
 return [
-    'db' => [
-        'host'    => '127.0.0.1',
-        'name'    => 'daohang_com',
-        'user'    => 'daohang_com',
-        'pass'    => 'daohang_com123',
-        'charset' => 'utf8mb4',
-    ],
+
     // 站点基础信息
     'site' => [
         'name'    => '计分网',

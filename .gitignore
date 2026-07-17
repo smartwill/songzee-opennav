@@ -20,3 +20,4 @@ bin-release/
 
 #config
 config/config.php
+config/db.php
