@@ -104,6 +104,9 @@ return [
         'tagline' => '{$config['site_tagline']}',
         'url'     => '/',
         'assets'  => '/assets',
+        'icp_beian' => '',
+        'mps_beian' => '',
+        'company' => '',
     ],
 ];
 EOF;

@@ -31,7 +31,7 @@
             <span class="brand-mark" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg>
             </span>
-            <span class="brand-text">开源替代</span>
+            <span class="brand-text"><?= e(config('site.name')) ?></span>
         </a>
 
         <nav class="main-nav" id="mainNav">
@@ -69,7 +69,7 @@
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg>
             </span>
             <div>
-                <strong>开源替代</strong>
+                <strong><?= e(config('site.name')) ?></strong>
                 <p><?= e(config('site.tagline')) ?>。一个为开发者与隐私倡导者打造的开源软件目录。</p>
             </div>
         </div>
@@ -89,8 +89,12 @@
         </div>
     </div>
     <div class="container footer-bottom">
-        <span>© <?= date('Y') ?> 开源替代 · 致敬开源社区 | <a href="https://www.songzee.com.cn" target="_blank" rel="noopener noreferrer">服装PLM系统</a></span>
+        <span>© <?= date('Y') ?> <?= e(config('site.name')) ?> · <?= e(config('site.company')) ?> | <a href="https://www.songzee.com.cn" target="_blank" rel="noopener noreferrer">服装PLM系统</a></span>
         <span>本站数据为演示用途，感谢<a href="https://www.songzee.com.cn" target="_blank" rel="noopener noreferrer">Songzee</a>提供服务</span>
+        <span>
+            <?php if ($icp = config('site.icp_beian')): ?><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener"><?= e($icp) ?></a><?php endif; ?>
+            <?php if ($mps = config('site.mps_beian')): ?><?php if ($icp) echo ' · '; ?><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" rel="noopener"><?= e($mps) ?></a><?php endif; ?>
+        </span>
     </div>
 </footer>
 

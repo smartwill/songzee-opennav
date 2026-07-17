@@ -1,6 +1,6 @@
 <?php /** 关于页 */ ?>
 <section class="container section page-head">
-    <h1 class="page-title">关于「开源替代」</h1>
+    <h1 class="page-title">关于「<?= e(config('site.name')) ?>」</h1>
     <p class="page-sub">让每个人都能轻松找到自由软件</p>
 </section>
 
@@ -8,7 +8,7 @@
     <div class="about-grid">
         <div class="about-text">
             <h2>我们相信软件自由</h2>
-            <p>「开源替代」是一个开源软件目录，帮助你在闭源、商业软件之外，发现更自由、更透明、更尊重隐私的替代方案。无论是笔记、设计、开发、通讯还是云存储，你都能在这里找到由社区驱动、可自由使用的优秀开源项目。</p>
+            <p>「<?= e(config('site.name')) ?>」是一个开源软件目录，帮助你在闭源、商业软件之外，发现更自由、更透明、更尊重隐私的替代方案。无论是笔记、设计、开发、通讯还是云存储，你都能在这里找到由社区驱动、可自由使用的优秀开源项目。</p>
             <p>我们收录了 <?= number_format($stats['software']) ?> 款商业软件与 <?= number_format($stats['tools']) ?> 个开源项目，并将它们一一对应，让你在最短的时间内完成选型。</p>
 
             <h2>为什么选择开源</h2>
