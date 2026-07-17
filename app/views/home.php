@@ -10,8 +10,8 @@
             你常用的商业软件
         </h1>
         <p class="hero-sub">
-            发现闭源软件背后更自由、更安全、更省钱的免费开源替代方案。
-            浏览目录、按分类筛选，找到属于你的那一款。<?= e(config('site.name')) ?>目录导航。
+            <?= e(config('site.name')) ?>目录导航助力发现闭源软件背后更自由、更安全、更省钱的免费开源替代方案。
+            浏览目录、按分类筛选，找到属于你的那一款。
         </p>
 
         <form class="hero-search" action="<?= url('/search') ?>" method="get">
