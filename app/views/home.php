@@ -7,7 +7,7 @@
         </div>
         <h1 class="hero-title">
             用<span class="grad">开源</span>替代<br>
-            你常用的商业软件
+            你常用的商业软件目录大全————<?= e(config('site.name')) ?>
         </h1>
         <p class="hero-sub">
             发现闭源软件背后更自由、更安全、更省钱的免费开源替代方案。

@@ -70,7 +70,7 @@
             </span>
             <div>
                 <strong><?= e(config('site.name')) ?></strong>
-                <p><?= e(config('site.tagline')) ?>。一个为开发者与隐私倡导者打造的开源软件目录。</p>
+                <p><?= e(config('site.tagline')) ?>。一个为开发者与开源倡导者打造的开源软件目录。</p>
             </div>
         </div>
         <div class="footer-links">
@@ -90,7 +90,6 @@
     </div>
     <div class="container footer-bottom">
         <span>© <?= date('Y') ?> <?= e(config('site.name')) ?> · <?= e(config('site.company')) ?> | <a href="https://www.songzee.com.cn" target="_blank" rel="noopener noreferrer">服装PLM系统</a></span>
-        <span>本站数据为演示用途，感谢<a href="https://www.songzee.com.cn" target="_blank" rel="noopener noreferrer">Songzee</a>提供服务</span>
         <span>
             <?php if ($icp = config('site.icp_beian')): ?><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener"><?= e($icp) ?></a><?php endif; ?>
             <?php if ($mps = config('site.mps_beian')): ?><?php if ($icp) echo ' · '; ?><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" rel="noopener"><?= e($mps) ?></a><?php endif; ?>
